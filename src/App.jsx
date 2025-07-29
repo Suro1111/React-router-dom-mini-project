@@ -1,6 +1,6 @@
 // * // * libraries
-import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 // * components
 import {
@@ -17,6 +17,19 @@ import {
 import { Footer } from "./components/Footer/Footer";
 
 export function App(props) {
+  const [todos, setTodos] = useState([...props.todos]);
+
+  const changeTodos = (newTodo) => {
+    setTodos(
+      todos.map((t) => {
+        if (t.id === newTodo.id) {
+          return newTodo;
+        }
+        return t;
+      })
+    );
+  };
+
   return (
     <>
       <Nav myData={props.myData} />
@@ -30,7 +43,10 @@ export function App(props) {
           />
           <Route path="/photos" element={<Photos photos={props.photos} />} />
           <Route path="/posts" element={<Posts posts={props.posts} />} />
-          <Route path="/todos" element={<Todos todos={props.todos} />} />
+          <Route
+            path="/todos"
+            element={<Todos todos={todos} changeTodos={changeTodos} />}
+          />
           <Route path="users" element={<Users users={props.users} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

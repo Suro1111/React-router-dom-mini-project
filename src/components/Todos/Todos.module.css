@@ -60,7 +60,8 @@ a:hover {
   flex-wrap: wrap;
 }
 .block .box {
-  border: 2px solid;
+  box-shadow: inset 0 0 5px #808080;
+  border-radius: 10px;
   max-width: 300px;
   width: 100%;
   height: 100px;
@@ -73,4 +74,11 @@ a:hover {
   margin: 0;
   text-align: center;
   overflow: auto;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.block .box input {
+  accent-color: #008000;
 }/*# sourceMappingURL=Todos.module.css.map */

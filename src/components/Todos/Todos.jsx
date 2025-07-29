@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./Todos.module.css";
 import { Container } from "../Container/Container";
 
-export function Todos({ todos }) {
+export function Todos({ todos, changeTodos }) {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   return (
@@ -19,7 +19,13 @@ export function Todos({ todos }) {
                 <input
                   type="checkbox"
                   checked={t.completed}
-                  onChange={() => alert(t.id)}
+                  onChange={(e) => {
+                    console.log(e.target.checked);
+                    changeTodos({
+                      ...t,
+                      completed: e.target.checked,
+                    });
+                  }}
                 />
                 <span>{t.title}</span>
               </label>

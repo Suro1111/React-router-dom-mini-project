@@ -1,0 +1,12 @@
+@import "../../assets/global/global.scss";
+
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), #000000a3), url("https://reactrouter.com/splash/hero-3d-logo.webp") no-repeat center / contain;
+    height: 80vh;
+    @include flex(row, center, center, 0, 0, 0);
+    color: #fff;
+   h1 {
+    font: bold 7vw cursive;
+    text-shadow: 1px 4px 1px #078c12;
+   }
+}

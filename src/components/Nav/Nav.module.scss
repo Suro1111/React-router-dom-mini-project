@@ -1,0 +1,13 @@
+@import "../../assets/global/global.scss";
+
+nav {
+    background: #1c4fd9;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    @include flex(row, center, center, 0, 20px, 0);
+    .box{
+        @include flex(row, center, center, 20px, 0, 0);
+        
+    }
+}
